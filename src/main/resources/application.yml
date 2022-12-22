@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-kafka-study
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    group-id: ${KAFKA_GROUP_ID}
+    consumer:
+      group-id: ${KAFKA_GROUP_ID}
+      max-poll-records: ${KAFKA_MAX_POLL_RECORDS:500}
+      heartbeat-interval: ${KAFKA_HEARTBEAT_INTERVAL:3000}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        "[session-timeout-ms]": ${KAFKA_SESSION_TIMEOUT:30000}
+        "[max-poll-interval-ms]": ${KAFKA_MAX_POLL_INTERVAL:300000}
